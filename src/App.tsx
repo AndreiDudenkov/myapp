@@ -17,13 +17,13 @@ function App () {
             {/*<Rating value={3} />*/}
             {/*<Rating value={4} />*/}
             {/*<Rating value={5} />*/}
-            <Indicator value={false} /> <br/>
-            <Indicator value={false} /><br/>
-            <Indicator value={false} /><br/>
-            <Indicator value={false} /><br/>
-            <Indicator value={false} /><br/>
-            <Indicator value={false} /><br/>
-            <Indicator value={false} />
+            <Indicator /> <br/>
+            <Indicator /><br/>
+            <Indicator /><br/>
+            <Indicator /><br/>
+            <Indicator /><br/>
+            <Indicator /><br/>
+            <Indicator />
         </div>
     );
 }

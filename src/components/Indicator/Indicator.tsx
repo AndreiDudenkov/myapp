@@ -1,11 +1,9 @@
 import React, {useState} from 'react';
 import {log} from 'util';
 
-type IndicatorType = {
-    value: boolean
-}
 
-export const Indicator = (props:IndicatorType) => {
+
+export const Indicator = () => {
     let [status, setStatus] = useState(false)
 
 
