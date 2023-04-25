@@ -2,13 +2,15 @@ import React, {useState} from 'react';
 import {log} from 'util';
 type AccordionPropsType = {
     titleValue: string
-    setDeployed:(deployed:boolean)=>void
     deployed: boolean
+    setDeployed:()=>void
+
 }
 function Accordion (props: AccordionPropsType) {
     // let [deployed, setDeployed] = useState(false)
     return <>
-        <AccordionTitle titleValue={props.titleValue} setDeployed={props.setDeployed} value={props.deployed} />
+        <AccordionTitle titleValue={props.titleValue}
+                        setDeployed={props.setDeployed}/>
         {/*<button onClick={()=>setDeployed(!deployed)}>Toggle</button>*/}
 
         { props.deployed && <AccordionBody/>}
@@ -16,8 +18,8 @@ function Accordion (props: AccordionPropsType) {
 }
 type AccordionTitlePropsType = {
     titleValue: string
-    setDeployed: (value:boolean) => void
-    value:boolean
+    setDeployed: () => void
+
 
 }
 
@@ -25,7 +27,7 @@ function AccordionTitle (props: AccordionTitlePropsType) {
 
     return (
 
-        <h3 onClick={()=>props.setDeployed(!props.value)}>--- {props.titleValue} ---</h3>
+        <h3 onClick={props.setDeployed}>--- {props.titleValue} ---</h3>
 
     )
 }

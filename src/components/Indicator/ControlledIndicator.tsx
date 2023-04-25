@@ -1,21 +1,14 @@
 import React, {useState} from 'react';
 import {log} from 'util';
 
-type IndicatorType={
-    setStatus:(status:boolean)=>void
+type IndicatorPropsType={
+    status: boolean
+    setStatus: (value: boolean)=> void
 }
 
-export const Indicator = (props:IndicatorType) => {
-    let [status, setStatus] = useState(false)
+export const IndicatorControlled: React.FC<IndicatorPropsType>  = ({status, setStatus}) => {
 
-const onClickOnHandler = () => {
-    setStatus(true)
-    props.setStatus(true)
-}
-    const onClickOffHandler = () => {
-        setStatus(false)
-        props.setStatus(false)
-    }
+
     const onStyle = {
         marginLeft: "10px",
         width: "30px",
@@ -50,9 +43,9 @@ const onClickOnHandler = () => {
 
     return (
         <>
-            <div style={onStyle} onClick={onClickOnHandler}>ON</div>
-            <div style={offStyle} onClick={onClickOffHandler}>OFF</div>
-            <div style={indicatorStyle}> </div>
+            <div style={onStyle} onClick={()=>setStatus(true)}>ON</div>
+    <div style={offStyle} onClick={()=>setStatus(false)}>OFF</div>
+    <div style={indicatorStyle} onClick={()=>setStatus(!status)} > </div>
         </>
-    )
+)
 }
