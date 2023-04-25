@@ -1,29 +1,33 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.css';
 import Accordion from "./components/Accordion/Accordion";
 import {Rating} from "./components/Rating/Rating";
 import {Indicator} from './components/Indicator/Indicator';
+import {RatingControl, RatingValuePropsType} from './components/Rating/ControlledRaiting';
+
 
 function App () {
-    console.log('App rendering')
+
+
+let [ratingValue, setRatingValue] = useState<RatingValuePropsType>(0)
+let [deployed, setDeployed]=useState<boolean>(true)
+
     return (
         <div id={"app"}>
             {/*<PageTitle title={'This is App component'} />*/}
             {/*<PageTitle title={'My friends'} />*/}
-            {/*<Accordion titleValue={'Title menu'} deployed={false} />*/}
-            {/*<Accordion titleValue={'Title users'} deployed={false}/>*/}
-            {/*<Rating value={1} />*/}
-            {/*<Rating value={2} />*/}
-            {/*<Rating value={3} />*/}
-            {/*<Rating value={4} />*/}
-            {/*<Rating value={5} />*/}
-            <Indicator /> <br/>
-            <Indicator /><br/>
-            <Indicator /><br/>
-            <Indicator /><br/>
+            <Accordion titleValue={'Title menu'} deployed={deployed} setDeployed={setDeployed}/>
+            {/*<Accordion titleValue={'Title users'} />*/}
+            <Rating />
+            <Rating />
+            {/*<Rating />*/}
+            {/*<Rating />*/}
+            {/*<Rating />*/}
+            {/*<RatingControl ratingValue={ratingValue} onClick={setRatingValue}/>*/}
             <Indicator /><br/>
             <Indicator /><br/>
             <Indicator />
+
         </div>
     );
 }

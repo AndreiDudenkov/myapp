@@ -1,25 +1,31 @@
-import React from "react";
+import React, {useState} from 'react';
+import {log} from 'util';
 type AccordionPropsType = {
     titleValue: string
+    setDeployed:(deployed:boolean)=>void
     deployed: boolean
 }
 function Accordion (props: AccordionPropsType) {
-    console.log('Accordion rendering')
-
+    // let [deployed, setDeployed] = useState(false)
     return <>
-        <AccordionTitle titleValue={props.titleValue}/>
-        {props.deployed && <AccordionBody/>}
+        <AccordionTitle titleValue={props.titleValue} setDeployed={props.setDeployed} value={props.deployed} />
+        {/*<button onClick={()=>setDeployed(!deployed)}>Toggle</button>*/}
+
+        { props.deployed && <AccordionBody/>}
     </>
 }
 type AccordionTitlePropsType = {
     titleValue: string
+    setDeployed: (value:boolean) => void
+    value:boolean
+
 }
+
 function AccordionTitle (props: AccordionTitlePropsType) {
-    console.log('AccordionTitle rendering')
-    debugger
+
     return (
 
-        <h3>--- {props.titleValue} ---</h3>
+        <h3 onClick={()=>props.setDeployed(!props.value)}>--- {props.titleValue} ---</h3>
 
     )
 }
