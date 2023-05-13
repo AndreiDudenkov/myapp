@@ -1,29 +1,36 @@
 import React, {useState} from 'react';
 import {log} from 'util';
+
+type ItemType ={
+    title: string
+    value: any
+}
+
 type AccordionPropsType = {
     titleValue: string
     deployed: boolean
-    setDeployed:()=>void
-
+    setDeployed: () => void
+    items: ItemType[]
+    onClick: (value:any)=>void
 }
-function Accordion (props: AccordionPropsType) {
+
+export const Accordion = (props: AccordionPropsType) => {
     // let [deployed, setDeployed] = useState(false)
     return <>
         <AccordionTitle titleValue={props.titleValue}
                         setDeployed={props.setDeployed}/>
         {/*<button onClick={()=>setDeployed(!deployed)}>Toggle</button>*/}
 
-        { props.deployed && <AccordionBody/>}
+        {props.deployed && <AccordionBody items={props.items} onClick={props.onClick}/>}
     </>
 }
+
 type AccordionTitlePropsType = {
     titleValue: string
     setDeployed: () => void
-
-
 }
 
-function AccordionTitle (props: AccordionTitlePropsType) {
+function AccordionTitle(props: AccordionTitlePropsType) {
 
     return (
 
@@ -32,16 +39,18 @@ function AccordionTitle (props: AccordionTitlePropsType) {
     )
 }
 
-function AccordionBody (props: any) {
-    console.log('AccordionBody rendering')
-    return (
+type AccordionBodyPropsType = {
+    items: ItemType[]
+    onClick: (value:any)=>void
+}
 
-        <ul>
-            <li>1</li>
-            <li>2</li>
-            <li>3</li>
-        </ul>
+function AccordionBody(props: AccordionBodyPropsType) {
+    console.log('AccordionBody rendering')
+    return (<ul>
+            {props.items.map((el, index) => <li onClick={()=>props.onClick(el.value)} key={index}>{el.title}</li>)}
+            </ul>
 
     )
 }
-export default Accordion;
+
+
