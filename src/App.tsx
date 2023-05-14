@@ -1,11 +1,12 @@
 import React, {useState} from 'react';
 import './App.css';
-import {Accordion} from './components/Accordion/Accordion';
+import {ControlledAccordion} from './components/Accordion/ControlledAccordion';
 import {Rating} from './components/Rating/Rating';
 import {Indicator} from './components/Indicator/Indicator';
 import {RatingControl, RatingValuePropsType} from './components/Rating/ControlledRaiting';
 import {IndicatorControlled} from './components/Indicator/ControlledIndicator';
 import {Select} from './components/Select/Select';
+import {Accordion} from './components/Accordion/Accordion';
 
 
 function App() {
@@ -20,12 +21,16 @@ function App() {
         <div id={'app'}>
             {/*<PageTitle title={'This is App component'} />*/}
             {/*<PageTitle title={'My friends'} />*/}
+            <ControlledAccordion titleValue={'Title menu'}
+                                 deployed={deployed}
+                                 setDeployed={() => setDeployed(!deployed)}
+                                 items={items}
+                                 onClick={()=>alert('user')}/>
             <Accordion titleValue={'Title menu'}
-                       deployed={deployed}
-                       setDeployed={() => setDeployed(!deployed)}
                        items={items}
-                       onClick={()=>alert('user')}/>
-            {/*<Accordion titleValue={'Title users'} />*/}
+                                 />
+            Accordion
+            {/*<ControlledAccordion titleValue={'Title users'} />*/}
             <Rating/>
             <Rating/>
             {/*<Rating />*/}

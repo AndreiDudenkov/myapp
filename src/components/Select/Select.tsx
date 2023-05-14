@@ -45,15 +45,14 @@ export const Select = (props: SelectPropsType) => {
                     }
                 }
             }
-            if(!selectedItem) {
+            if (!selectedItem) {
                 props.onChange(props.items[0].value)
             }
         }
-        if (e.key === 'Escape' || e.key === 'Enter'){
+        if (e.key === 'Enter') {
             setActive(!active)
         }
     }
-
         return (<>
                 <div className={styles.select} tabIndex={0} onKeyUp={onKeyUpHandler}>
                     <span className={styles.main}

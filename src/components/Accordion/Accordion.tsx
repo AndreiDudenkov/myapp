@@ -1,5 +1,5 @@
-import React, {useState} from 'react';
-import {log} from 'util';
+import React, {useReducer} from 'react';
+import {DEPLOYED_CHANGE, reducer} from '../Reducer/Reducer';
 
 type ItemType ={
     title: string
@@ -8,49 +8,49 @@ type ItemType ={
 
 type AccordionPropsType = {
     titleValue: string
-    deployed: boolean
-    setDeployed: () => void
     items: ItemType[]
-    onClick: (value:any)=>void
+
 }
 
+
+
 export const Accordion = (props: AccordionPropsType) => {
-    // let [deployed, setDeployed] = useState(false)
+    const [state, dispatch] = useReducer(reducer, {deployed:true})
+
+
     return <>
         <AccordionTitle titleValue={props.titleValue}
-                        setDeployed={props.setDeployed}/>
-        {/*<button onClick={()=>setDeployed(!deployed)}>Toggle</button>*/}
+                        onClick={()=>dispatch({type: DEPLOYED_CHANGE})}/>
 
-        {props.deployed && <AccordionBody items={props.items} onClick={props.onClick}/>}
+        {state.deployed && <AccordionBody items={props.items}/>}
     </>
 }
 
 type AccordionTitlePropsType = {
     titleValue: string
-    setDeployed: () => void
+    onClick: () => void
 }
 
 function AccordionTitle(props: AccordionTitlePropsType) {
 
     return (
 
-        <h3 onClick={props.setDeployed}>--- {props.titleValue} ---</h3>
+        <h3 onClick={props.onClick}>--- {props.titleValue} -2222222--</h3>
 
     )
 }
 
 type AccordionBodyPropsType = {
     items: ItemType[]
-    onClick: (value:any)=>void
+
 }
 
 function AccordionBody(props: AccordionBodyPropsType) {
     console.log('AccordionBody rendering')
     return (<ul>
-            {props.items.map((el, index) => <li onClick={()=>props.onClick(el.value)} key={index}>{el.title}</li>)}
-            </ul>
+            {props.items.map((el, index) => <li key={index}>{el.title}</li>)}
+        </ul>
 
     )
 }
-
 
