@@ -1,6 +1,7 @@
 import React, {useCallback, useState} from 'react';
 import exp from 'constants';
 import {rename} from 'fs';
+import {IndicatorControlledForMemo} from '../Indicator/ControlledIndicator';
 
 export type RatingValuePropsType = 0 | 1 | 2 | 3 | 4 | 5
 
@@ -9,7 +10,7 @@ export type RatingControlPropsType = {
     onClick:(value:RatingValuePropsType)=>void
 }
 
-export function RatingControl(props: RatingControlPropsType) {
+export function RatingControlForMemo(props: RatingControlPropsType) {
 
     return (
         <div>
@@ -21,6 +22,7 @@ export function RatingControl(props: RatingControlPropsType) {
         </div>
     );
 }
+export const RatingControl = React.memo(RatingControlForMemo)
 
 type StarPropsType = {
     selected: boolean

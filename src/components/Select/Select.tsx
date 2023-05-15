@@ -1,5 +1,6 @@
 import React, {useState, KeyboardEvent, useEffect} from 'react';
 import styles from './Select.module.css';
+import {RatingForMemo} from '../Rating/Rating';
 
 
 type ItemType = {
@@ -12,7 +13,7 @@ type SelectPropsType = {
     items: ItemType[]
 }
 
-export const Select = (props: SelectPropsType) => {
+export const SelectForMemo = (props: SelectPropsType) => {
 
     const [active, setActive] = useState(true)
     const [hoveredElementValue, setHoveredElementValue] = useState(props.value)
@@ -74,3 +75,4 @@ export const Select = (props: SelectPropsType) => {
             </>
         )
     }
+export const Select = React.memo(SelectForMemo)

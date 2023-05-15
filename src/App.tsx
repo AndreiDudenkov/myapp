@@ -29,15 +29,14 @@ function App() {
             <Accordion titleValue={'Title menu'}
                        items={items}
                                  />
-            Accordion
             {/*<ControlledAccordion titleValue={'Title users'} />*/}
-            <Rating/>
-            <Rating/>
+            {/*<Rating/>*/}
+            {/*<Rating/>*/}
             {/*<Rating />*/}
             {/*<Rating />*/}
-            {/*<Rating />*/}
-            {/*<RatingControl ratingValue={ratingValue} onClick={setRatingValue}/>*/}
-            {/*<IndicatorControlled status={status} setStatus={ setStatus} /><br/>*/}
+            <Rating />
+            <RatingControl ratingValue={ratingValue} onClick={setRatingValue}/>
+            <IndicatorControlled status={status} setStatus={ setStatus} /><br/>
             <Indicator setStatus={setStatus}/> {status.toString()}
             <Select value={name} onChange={setName} items={items}/>
 

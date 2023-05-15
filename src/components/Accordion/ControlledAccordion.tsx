@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import {log} from 'util';
+import {AccordionForMemo} from './Accordion';
 
 type ItemType ={
     title: string
@@ -15,7 +16,7 @@ type AccordionPropsType = {
 }
 
 
-export const ControlledAccordion = (props: AccordionPropsType) => {
+export const ControlledAccordionForMemo = (props: AccordionPropsType) => {
     // let [deployed, setDeployed] = useState(false)
     return <>
         <AccordionTitle titleValue={props.titleValue}
@@ -25,6 +26,7 @@ export const ControlledAccordion = (props: AccordionPropsType) => {
         {props.deployed && <AccordionBody items={props.items} onClick={props.onClick}/>}
     </>
 }
+export const ControlledAccordion = React.memo(ControlledAccordionForMemo)
 
 type AccordionTitlePropsType = {
     titleValue: string

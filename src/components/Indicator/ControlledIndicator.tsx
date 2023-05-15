@@ -1,12 +1,13 @@
 import React, {useState} from 'react';
 import {log} from 'util';
+import {IndicatorForMemo} from './Indicator';
 
 type IndicatorPropsType={
     status: boolean
     setStatus: (value: boolean)=> void
 }
 
-export const IndicatorControlled: React.FC<IndicatorPropsType>  = ({status, setStatus}) => {
+export const IndicatorControlledForMemo: React.FC<IndicatorPropsType>  = ({status, setStatus}) => {
 
 
     const onStyle = {
@@ -49,3 +50,4 @@ export const IndicatorControlled: React.FC<IndicatorPropsType>  = ({status, setS
         </>
 )
 }
+export const IndicatorControlled = React.memo(IndicatorControlledForMemo)

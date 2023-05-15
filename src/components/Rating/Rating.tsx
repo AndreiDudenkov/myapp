@@ -1,10 +1,11 @@
 import React, {useCallback, useState} from 'react';
+import {RatingControlForMemo} from './ControlledRaiting';
 
 type RatingPropsType = {
 
 }
 
-export function Rating(props: RatingPropsType) {
+export function RatingForMemo(props: RatingPropsType) {
     let [mark, setMark] = useState(0)
 
         return (
@@ -17,6 +18,9 @@ export function Rating(props: RatingPropsType) {
             </div>
         );
 }
+
+export const Rating = React.memo(RatingForMemo)
+
 type StarPropsType = {
     selected: boolean
     setMark: () => void

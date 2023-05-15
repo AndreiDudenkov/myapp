@@ -14,7 +14,7 @@ type AccordionPropsType = {
 
 
 
-export const Accordion = (props: AccordionPropsType) => {
+export const AccordionForMemo = (props: AccordionPropsType) => {
     const [state, dispatch] = useReducer(reducer, {deployed:true})
 
 
@@ -26,6 +26,7 @@ export const Accordion = (props: AccordionPropsType) => {
     </>
 }
 
+export const Accordion = React.memo(AccordionForMemo)
 type AccordionTitlePropsType = {
     titleValue: string
     onClick: () => void

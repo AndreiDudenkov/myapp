@@ -1,4 +1,5 @@
 import React, {useReducer} from 'react';
+import {RatingForMemo} from '../Rating/Rating';
 
 export type ActionType = {
     type: string
@@ -20,3 +21,4 @@ export const reducer = (state: StateType, action: ActionType):StateType => {
     }
     return state
 }
+

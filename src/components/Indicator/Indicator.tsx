@@ -1,11 +1,12 @@
 import React, {useState} from 'react';
 import {log} from 'util';
+import {ControlledAccordionForMemo} from '../Accordion/ControlledAccordion';
 
 type IndicatorType={
     setStatus:(status:boolean)=>void
 }
 
-export const Indicator = (props:IndicatorType) => {
+export const IndicatorForMemo = (props:IndicatorType) => {
     let [status, setStatus] = useState(false)
 
 const onClickOnHandler = () => {
@@ -56,3 +57,5 @@ const onClickOnHandler = () => {
         </>
     )
 }
+
+export const Indicator = React.memo(IndicatorForMemo)
