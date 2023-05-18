@@ -1,10 +1,10 @@
-import {useMemo, useState} from 'react';
+import React, {useMemo, useState} from 'react';
 
 export  default {
     title: 'useMemo'
 }
 
-export const useMemoExample = () => {
+export const useMemoDifficultExample = () => {
     const [a, setA] = useState(2)
     const [b, setB] = useState(3)
 
@@ -33,3 +33,42 @@ export const useMemoExample = () => {
     </>
 
 }
+
+
+    const NewMessageCounter = (props: { count: number }) =>
+    {
+        return <div>{props.count}</div>
+    }
+
+    const UsersSecret = (props: { users: string[] }) => {
+        console.log('Update Users')
+        return <div>
+            {props.users.map((u, i) =>
+                <div key={i}>{u}</div>)}
+        </div>
+    }
+
+    const Users = React.memo(UsersSecret)
+
+    export const useMemoHelpsReactMemoExample = () => {
+        console.log('useMemoHelps')
+        const [counter, setCounter] = useState(0)
+        const [users, setUsers] = useState(['Andrei', 'Dimych'])
+
+
+
+        let filteredUsers = useMemo(()=>{
+            return  users.filter(el=>el.toLowerCase().indexOf('a')>-1)
+        },[users])
+
+       const addUser = () => {
+         const  newUser = [...users, "Jona "+ new Date().getTime()]
+           setUsers(newUser)
+       }
+        return <>
+            <button onClick={() => setCounter(counter + 1)}>Count +</button>
+            <button onClick={addUser}>addUser</button>
+            <NewMessageCounter count={counter}/>
+            <Users users={filteredUsers}/>
+        </>
+    }
