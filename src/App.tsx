@@ -7,6 +7,7 @@ import {RatingControl, RatingValuePropsType} from './components/Rating/Controlle
 import {IndicatorControlled} from './components/Indicator/ControlledIndicator';
 import {Select} from './components/Select/Select';
 import {Accordion} from './components/Accordion/Accordion';
+import {Clock} from './components/Clock/Clock';
 
 
 function App() {
@@ -19,27 +20,27 @@ function App() {
     let [name, setName] = useState(items[0].title)
     return (
         <div id={'app'}>
-            {/*<PageTitle title={'This is App component'} />*/}
-            {/*<PageTitle title={'My friends'} />*/}
-            <ControlledAccordion titleValue={'Title menu'}
-                                 deployed={deployed}
-                                 setDeployed={() => setDeployed(!deployed)}
-                                 items={items}
-                                 onClick={()=>alert('user')}/>
-            <Accordion titleValue={'Title menu'}
-                       items={items}
-                                 />
-            {/*<ControlledAccordion titleValue={'Title users'} />*/}
-            {/*<Rating/>*/}
-            {/*<Rating/>*/}
+            {/*/!*<PageTitle title={'This is App component'} />*!/*/}
+            {/*/!*<PageTitle title={'My friends'} />*!/*/}
+            {/*<ControlledAccordion titleValue={'Title menu'}*/}
+            {/*                     deployed={deployed}*/}
+            {/*                     setDeployed={() => setDeployed(!deployed)}*/}
+            {/*                     items={items}*/}
+            {/*                     onClick={()=>alert('user')}/>*/}
+            {/*<Accordion titleValue={'Title menu'}*/}
+            {/*           items={items}*/}
+            {/*                     />*/}
+            {/*/!*<ControlledAccordion titleValue={'Title users'} />*!/*/}
+            {/*/!*<Rating/>*!/*/}
+            {/*/!*<Rating/>*!/*/}
+            {/*/!*<Rating />*!/*/}
+            {/*/!*<Rating />*!/*/}
             {/*<Rating />*/}
-            {/*<Rating />*/}
-            <Rating />
-            <RatingControl ratingValue={ratingValue} onClick={setRatingValue}/>
-            <IndicatorControlled status={status} setStatus={ setStatus} /><br/>
-            <Indicator setStatus={setStatus}/> {status.toString()}
-            <Select value={name} onChange={setName} items={items}/>
-
+            {/*<RatingControl ratingValue={ratingValue} onClick={setRatingValue}/>*/}
+            {/*<IndicatorControlled status={status} setStatus={ setStatus} /><br/>*/}
+            {/*<Indicator setStatus={setStatus}/> {status.toString()}*/}
+            {/*<Select value={name} onChange={setName} items={items}/>*/}
+            <Clock/>
         </div>
     );
 }
