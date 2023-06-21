@@ -5,9 +5,6 @@ import {log} from 'util';
 
 export const Clock = () => {
     let [date, setDate] = useState(new Date())
-    // let [sec, setSec] = useState(0)
-    // let [min, setMin] = useState(0)
-    // let [hour, setHour] = useState(0)
 
     useEffect(() => {
         let int = setInterval(() => {
