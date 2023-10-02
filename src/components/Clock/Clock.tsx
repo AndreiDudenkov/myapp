@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import s from './Clock.module.css'
-import {number} from 'prop-types';
-import {log} from 'util';
+
 
 export const Clock = () => {
     let [date, setDate] = useState(new Date())

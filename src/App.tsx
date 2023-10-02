@@ -8,6 +8,7 @@ import {IndicatorControlled} from './components/Indicator/ControlledIndicator';
 import {Select} from './components/Select/Select';
 import {Accordion} from './components/Accordion/Accordion';
 import {Clock} from './components/Clock/Clock';
+import {Stopwatch} from './components/Stopwatch/Stopwatch';
 
 
 function App() {
@@ -40,7 +41,8 @@ function App() {
             {/*<IndicatorControlled status={status} setStatus={ setStatus} /><br/>*/}
             {/*<Indicator setStatus={setStatus}/> {status.toString()}*/}
             {/*<Select value={name} onChange={setName} items={items}/>*/}
-            <Clock/>
+            <Stopwatch/>
+            {/*<Clock/>*/}
         </div>
     );
 }
