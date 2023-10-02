@@ -31,11 +31,10 @@ export const Stopwatch = () => {
         <div>
             <h1>Stopwatch</h1>
             <p>Elapsed Time: {time} seconds</p>
-            <button onClick={handleStartStop}>{isRunning ? 'Stop' : 'Start'}</button>
-            <button onClick={handleReset}>Reset</button>
+            <button onClick={handleStartStop} style={{ backgroundColor: 'green', color: 'white' }}>{isRunning ? 'Stop' : 'Start'}</button>
+            <button onClick={handleReset} style={{ backgroundColor: 'red', color: 'white' }}>Reset</button>
         </div>
     );
 }
-
 
 
